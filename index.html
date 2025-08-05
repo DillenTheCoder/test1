@@ -1,27 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - My App</title>
+  <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+  <header>
+    <img src="assets/logo.jpeg" alt="My App Logo" class="logo" />
+  </header>
 
-    
-  <div class="container">
-    <form method="post" action="https://script.google.com/macros/s/AKfycbwJWjFsFGdn_ne0phbFeHWJGJyiYpfyP13qoL_A_NanlyFumbebD0k0cIo5SYnWTSoF/exec" name="contact-form">
-      <h4>Contact Us</h4>
-      <input type="text" name="name" placeholder="Name">
-      <input type="text" name="surname" placeholder="Number">
-      <input type="email" name="email" placeholder="Email">
-      <textarea name="message" rows="7" placeholder="Your Message">
-      </textarea>
-      <input type="submit" value="Submit" id="submit">
-		</form>
-	</div>
+  <main class="container">
+    <h2>Membership Sign Up</h2><br />
 
- 
-<script src="script.js"></script>
+    <form id="signup-form">
+      <input
+        type="text"
+        id="name"
+        placeholder="Member's Name"
+        required
+      />
+      <input
+        type="text"
+        id="surname"
+        placeholder="Member's Surname"
+        required
+      />
+
+      <!-- Phone Input -->
+      <input
+        type="text"
+        id="phone"
+        value="+27 "
+        required
+        maxlength="15"
+        pattern="^\+27\s\d{2}\s\d{3}\s\d{4}$"
+        title="Enter phone number in the format: +27 84 638 4919"
+      />
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Member's Email"
+        required
+      />
+      <input
+        type="text"
+        id="id_number"
+        placeholder="13-digit SA ID Number"
+        maxlength="13"
+        required
+      />
+
+      <label>
+        <input type="checkbox" id="payment-confirm" required />
+        I have paid the R250 membership fee.
+      </label><br />
+
+      <!-- Camera Capture -->
+      <p>Take a picture of the new member:</p>
+      <button type="button" id="open-camera">Open Camera</button>
+
+      <div id="camera-section">
+        <video id="video" autoplay></video><br />
+        <button type="button" id="capture-photo">Capture Photo</button>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p>
+      Already registered? |
+      <a href="verify.html">Verify Membership</a>
+    </p>
+    <p>
+      Admin Panel |
+      <a href="admin.html">View All Members</a>
+    </p>
+  </main>
+
+  <!-- Success Popup Modal -->
+  <div id="popup" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-popup">&times;</span>
+      <p>Registration Successful</p>
+    </div>
+  </div>
+
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
